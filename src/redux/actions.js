@@ -13,3 +13,31 @@ export const removeCar = (index) => {
         value: index
     }
 }
+
+export const fetchMakes = () => {
+
+    async function fetchMakesHandler(dispatch) {
+
+        const response = await fetch(url);
+
+        const data = await response.json();
+
+        dispatch({
+
+            type: 'FETCH_MAKES',
+
+            value: data.Results
+
+        })
+    }
+
+    return fetchMakesHandler;
+
+}
+
+export const deleteMake = (index) => {
+    return {
+        type: 'DELETE_MAKE',
+        value: index
+    }
+}
